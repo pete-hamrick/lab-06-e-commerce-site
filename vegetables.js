@@ -1,8 +1,3 @@
-// PSEUDO CODE
-// I need to design a list that will generically refer to my vegetables
-// The list will have a title, image and a button to add it to the cart
-// The list will have a product id, name, image, description, category, and price
-
 const carrots = {
     id: 'carrots',
     name: 'Carrots',
@@ -65,6 +60,5 @@ const vegetables = [
     broccoli,
     cabbage
 ];
-
 
 export default vegetables;
