@@ -1,1 +1,20 @@
-/* add home page styles here */
+#vegetables {
+  display: flex;
+  flex-wrap: wrap;
+}
+#vegetables li {
+  width: 100px;
+  height: 200px;
+  border: 1px solid gray;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#vegetables li h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#vegetables li img {
+  width: 80%;
+}
