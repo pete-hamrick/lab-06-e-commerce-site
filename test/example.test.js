@@ -37,7 +37,7 @@ test('returns vegetables by their id', expect =>{
     expect.deepEqual(actual, expected);
 });
 
-test('calcItemTotal should return the total amount of the cart', expect=>{
+test('calcItemTotal should return the total amount of the cart', expect => {
     const cart = [
         { id: 'carrots', qty: 4 },
         { id: 'onions', qty: 2 },
@@ -70,7 +70,7 @@ test('renderTableRow should return a <tr> element', expect => {
         category: 'root',
         price: 0.50
     };
-    const carrotCart = { id: 'carrots', qty: 4 }
+    const carrotCart = { id: 'carrots', qty: 4 };
     const expected = `<tr><td>Carrots</td><td>$0.50</td><td>4</td><td>$2.00</td></tr>`;
     const dom = renderTableRow(carrot, carrotCart);
     const html = dom.outerHTML;
