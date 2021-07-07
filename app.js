@@ -1,4 +1,4 @@
-import vegetables from './vegetables.js';
+import vegetables from './data/vegetables.js';
 import { renderVegetables } from './vegetable-render.js';
 
 const vegetableUL = document.getElementById('vegetables');
