@@ -1,6 +1,4 @@
-// IMPORT MODULES under test here:
-// import { example } from '../example.js';
-import { findById, calcItemTotal, renderTableRow } from '../utils.js';
+import { findById, calcItemTotal, renderTableRow, calcOrderTotal } from '../utils.js';
 import { renderVegetables } from '../vegetable-render.js';
 import vegetables from '../data/vegetables.js';
 
@@ -37,7 +35,7 @@ test('returns vegetables by their id', expect =>{
     expect.deepEqual(actual, expected);
 });
 
-test('calcItemTotal should return the total amount of the cart', expect => {
+test('calcOrderTotal should return the total amount of the cart', expect => {
     const cart = [
         { id: 'carrots', qty: 4 },
         { id: 'onions', qty: 2 },
@@ -57,7 +55,7 @@ test('calcItemTotal should return the total amount of the cart', expect => {
     }];
 
     const expected = 12.50;
-    const actual = calcItemTotal(data, cart);
+    const actual = calcOrderTotal(data, cart);
     expect.equal(expected, actual);
 });
 
@@ -75,4 +73,13 @@ test('renderTableRow should return a <tr> element', expect => {
     const dom = renderTableRow(carrot, carrotCart);
     const html = dom.outerHTML;
     expect.equal(html, expected);
+});
+
+test('tests if calcItemTotal multiplies item and price correctly', expect => {
+    const carrotPrice = { id: 'carrots', price: 0.50 };
+    const qty = { id: 'carrot', qty: 4 };
+
+    const expected = 2;
+    const actual = calcItemTotal(carrotPrice, qty);
+    expect.equal(actual, expected);
 });
