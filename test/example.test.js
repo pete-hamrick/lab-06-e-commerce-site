@@ -79,7 +79,7 @@ test('tests if calcItemTotal multiplies item and price correctly', expect => {
     const carrotPrice = { id: 'carrots', price: 0.50 };
     const qty = { id: 'carrot', qty: 4 };
 
-    const expected = 2;
+    const expected = '$2.00';
     const actual = calcItemTotal(carrotPrice, qty);
     expect.equal(actual, expected);
 });
