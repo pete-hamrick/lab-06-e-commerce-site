@@ -37,7 +37,7 @@ export function renderTableRow(vegItem, cartItem){
 
     const tdTotal = document.createElement('td');
     const total = calcItemTotal(vegItem, cartItem);
-    tdTotal.textContent = total;
+    tdTotal.textContent = toUSD(total);
     tr.appendChild(tdTotal);
 
     return tr;
