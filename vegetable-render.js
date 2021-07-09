@@ -1,3 +1,4 @@
+// Renders vegetables that you can shop for
 export function renderVegetables(vegetable){
     const vegetableLI = document.createElement('li');
     const vegetableH3 = document.createElement('h3');
