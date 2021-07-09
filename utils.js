@@ -80,3 +80,7 @@ export function addItemToCart(itemId){
     }
     localStorage.setItem(CART, JSON.stringify(cart));
 }
+
+export function clearCart() {
+    localStorage.removeItem(CART);
+}
