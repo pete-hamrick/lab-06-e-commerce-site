@@ -12,6 +12,8 @@ export function renderVegetables(vegetable){
 
     const button = document.createElement('button');
     button.textContent = 'Add to Cart';
+    button.value = vegetable.id;
+    button.classList.add('add');
 
     vegetableLI.appendChild(vegetableH3);
     vegetableLI.appendChild(vegetableImg);

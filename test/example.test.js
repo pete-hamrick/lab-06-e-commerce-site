@@ -1,7 +1,6 @@
 import { findById, calcItemTotal, renderTableRow, calcOrderTotal } from '../utils.js';
 import { renderVegetables } from '../vegetable-render.js';
 import vegetables from '../data/vegetables.js';
-
 const test = QUnit.test;
 
 test('does this list carrot values', (expect) => {
@@ -78,8 +77,46 @@ test('renderTableRow should return a <tr> element', expect => {
 test('tests if calcItemTotal multiplies item and price correctly', expect => {
     const carrotPrice = { id: 'carrots', price: 0.50 };
     const qty = { id: 'carrot', qty: 4 };
-
+    
     const expected = '$2.00';
     const actual = calcItemTotal(carrotPrice, qty);
     expect.equal(actual, expected);
 });
+
+// TODO add test for getCart
+// test('getCart return the shopping cart from localStorage as object', (expect) => {
+//     // ARRANGE
+//     const fakeCart = [
+//         { id: 'carrots', qty: 4 },
+//         { id: 'onions', qty: 2 },
+//         { id: 'broccoli', qty: 3 },
+//     ];
+
+//     const fakCartString = JSON.stringify(fakeCart);
+//     localStorage.setItem(CART, fakCartString);
+
+//     const cart = getCart();
+
+//     expect.deepEqual(cart, fakeCart);
+// });
+
+// TODO add test for setCart
+// TODO add test for addItemToCart
+
+
+// test(setCart)
+
+// test(addItemToCart)
+
+// test('addItemToCart should update quantity if item already in cart', expect => {
+//     const fakeCart = [
+//         { id: 'carrots', qty: 4 },
+//         { id: 'onions', qty: 2 },
+//         { id: 'broccoli', qty: 3 },
+//     ];
+//     const newCart = [
+//         { id: 'carrots', qty: 5 },
+//         { id: 'onions', qty: 2 },
+//         { id: 'broccoli', qty: 3 },
+//     ];
+// })

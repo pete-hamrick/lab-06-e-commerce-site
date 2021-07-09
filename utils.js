@@ -37,7 +37,7 @@ export function renderTableRow(vegItem, cartItem){
 
     const tdTotal = document.createElement('td');
     const total = calcItemTotal(vegItem, cartItem);
-    tdTotal.textContent = total;
+    tdTotal.textContent = toUSD(total);
     tr.appendChild(tdTotal);
 
     return tr;
@@ -48,4 +48,39 @@ export function calcItemTotal(vegItem, cartItem) {
     const itemTotal = vegItem.price * cartItem.qty;
     return toUSD(itemTotal);
 
+}
+
+export const CART = 'cart';
+const emptyCart = [];
+console.log(emptyCart);
+// TODO write getCart function
+export function getCart() {
+    // get the cart from localstorage
+    let stringCart = localStorage.getItem(CART) || '[]';
+    // parse it
+    const cart = JSON.parse(stringCart);
+    // return it
+    return cart;
+}
+// TODO write setCart function
+export function setCart() {
+    localStorage.setItem(CART, JSON.stringify(CART));
+}
+// TODO write addItemToCart function
+export function addItemToCart(itemId){
+    // get the cart from local storage
+    const cart = getCart();
+    const item = findById(cart, itemId);
+
+    if (item) {
+        item.qty += 1;
+    } else {
+        const newItem = { id: itemId, qty: 1 };
+        cart.push(newItem);
+    }
+    localStorage.setItem(CART, JSON.stringify(cart));
+}
+
+export function clearCart() {
+    localStorage.removeItem(CART);
 }
