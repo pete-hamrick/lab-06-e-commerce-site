@@ -56,7 +56,7 @@ export function calcItemTotal(vegItem, cartItem) {
 
 export const CART = 'cart';
 const emptyCart = [];
-console.log(emptyCart);
+
 // TODO write getCart function
 export function getCart() {
     // get the cart from localstorage
@@ -86,5 +86,5 @@ export function addItemToCart(itemId){
 }
 
 export function clearCart() {
-    localStorage.removeItem(CART);
+    localStorage.setItem(CART, JSON.stringify(emptyCart));
 }

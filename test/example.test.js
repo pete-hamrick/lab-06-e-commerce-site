@@ -91,30 +91,35 @@ test('getCart return the shopping cart from localStorage as object', (expect) =>
         { id: 'broccoli', qty: 3 },
     ];
 
-    const fakCartString = JSON.stringify(fakeCart);
-    localStorage.setItem(CART, fakCartString);
+    const fakeCartString = JSON.stringify(fakeCart);
+    localStorage.setItem(CART, fakeCartString);
 
     const cart = getCart();
 
     expect.deepEqual(cart, fakeCart);
 });
 
-// TODO add test for setCart
-// test(setCart)
 
 
-
-
-// TODO add test for addItemToCart
+// //TODO add test for addItemToCart
 // test('addItemToCart should update quantity if item already in cart', expect => {
 //     const fakeCart = [
 //         { id: 'carrots', qty: 4 },
 //         { id: 'onions', qty: 2 },
 //         { id: 'broccoli', qty: 3 },
 //     ];
-//     const newCart = [
+//     const fakeCartString = JSON.stringify(fakeCart);
+//     localStorage.setItem(CART, fakeCartString);
+
+//     addItemToCart('carrots');
+
+//     const newCart = getCart();
+
+//     const expected = [
 //         { id: 'carrots', qty: 5 },
 //         { id: 'onions', qty: 2 },
 //         { id: 'broccoli', qty: 3 },
 //     ];
-// })
+
+//     expect.deepEqual(newCart, expected);
+// });
