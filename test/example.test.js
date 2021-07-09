@@ -1,10 +1,10 @@
-import { findById, calcItemTotal, renderTableRow, calcOrderTotal } from '../utils.js';
+import { findById, calcItemTotal, renderTableRow, calcOrderTotal, getCart, CART } from '../utils.js';
 import { renderVegetables } from '../vegetable-render.js';
 import vegetables from '../data/vegetables.js';
 const test = QUnit.test;
 
 test('does this list carrot values', (expect) => {
-    const carrotLI = `<li><h3>Carrots</h3><img src="./assets/carrots.jpg" alt="Carrots"><span>$0.5</span><button>Add to Cart</button></li>`;
+    const carrotLI = `<li><h3>Carrots</h3><img src="./assets/carrots.jpg" alt="Carrots"><span>$0.5</span><button value="carrots" class="add">Add to Cart</button></li>`;
     const carrot = {
         id: 'carrots',
         name: 'Carrots',
@@ -83,31 +83,29 @@ test('tests if calcItemTotal multiplies item and price correctly', expect => {
     expect.equal(actual, expected);
 });
 
-// TODO add test for getCart
-// test('getCart return the shopping cart from localStorage as object', (expect) => {
-//     // ARRANGE
-//     const fakeCart = [
-//         { id: 'carrots', qty: 4 },
-//         { id: 'onions', qty: 2 },
-//         { id: 'broccoli', qty: 3 },
-//     ];
+test('getCart return the shopping cart from localStorage as object', (expect) => {
+    // ARRANGE
+    const fakeCart = [
+        { id: 'carrots', qty: 4 },
+        { id: 'onions', qty: 2 },
+        { id: 'broccoli', qty: 3 },
+    ];
 
-//     const fakCartString = JSON.stringify(fakeCart);
-//     localStorage.setItem(CART, fakCartString);
+    const fakCartString = JSON.stringify(fakeCart);
+    localStorage.setItem(CART, fakCartString);
 
-//     const cart = getCart();
+    const cart = getCart();
 
-//     expect.deepEqual(cart, fakeCart);
-// });
+    expect.deepEqual(cart, fakeCart);
+});
 
 // TODO add test for setCart
-// TODO add test for addItemToCart
-
-
 // test(setCart)
 
-// test(addItemToCart)
 
+
+
+// TODO add test for addItemToCart
 // test('addItemToCart should update quantity if item already in cart', expect => {
 //     const fakeCart = [
 //         { id: 'carrots', qty: 4 },

@@ -1,3 +1,4 @@
+// Allows you to find an item by it's id
 export function findById(items, id) {
     for (const item of items) {
         if (item.id === id) {
@@ -6,11 +7,13 @@ export function findById(items, id) {
     }
 }
 
+// Converts to American Dollars
 export function toUSD(number) {
     return number.toLocaleString(
         'en-US', { style: 'currency', currency: 'USD' });
 }
 
+// Calculates the total order 
 export function calcOrderTotal(vegetables, cart){
     let itemTotal = 0;
 
@@ -21,6 +24,7 @@ export function calcOrderTotal(vegetables, cart){
     return itemTotal;
 }
 
+// 
 export function renderTableRow(vegItem, cartItem){
     const tr = document.createElement('tr');
     const tdName = document.createElement('td');
